@@ -18,7 +18,7 @@ namespace MockDataGeneration
             var random = new Random();
 
             var FakerCategory = new Faker<Category>()
-                .RuleFor(c => c.Id, f =>1 + f.IndexFaker)
+                .RuleFor(c => c.Id, f => 1 + f.IndexFaker)
                 .RuleFor(c => c.Name, f => f.Random.Word())
                 ;
             var FakerProduct = new Faker<Product>()
@@ -31,7 +31,7 @@ namespace MockDataGeneration
             foreach (var category in Categories)
             {
                 FakerProduct.RuleFor(p => p.CategoryId, f => category.Id).Generate();
-                category.Products = FakerProduct.Generate(random.Next(1, 6));
+                category.Products = FakerProduct.Generate(random.Next(3, 6));
 
                 Products.AddRange(category.Products);
             }
