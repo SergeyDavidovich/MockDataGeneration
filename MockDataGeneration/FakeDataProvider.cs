@@ -11,11 +11,13 @@ namespace MockDataGeneration
 {
     public partial class FakeDataProvider
     {
+        private readonly int categoriesCount;
         public FakeDataProvider()
         {
             Categories = new List<Category>();
             Products = new List<Product>();
-            var random = new Random();
+
+            categoriesCount = 4;
 
             var FakerCategory = new Faker<Category>()
                 .RuleFor(c => c.Id, f => 1 + f.IndexFaker)
@@ -26,12 +28,12 @@ namespace MockDataGeneration
                 .RuleFor(p => p.Name, f => f.Random.Word())
                 ;
 
-            Categories.AddRange(FakerCategory.Generate(3));
+            Categories.AddRange(FakerCategory.Generate(categoriesCount));
 
             foreach (var category in Categories)
             {
                 FakerProduct.RuleFor(p => p.CategoryId, f => category.Id).Generate();
-                category.Products = FakerProduct.Generate(random.Next(3, 6));
+                category.Products = FakerProduct.Generate(new Random().Next(2, 8));
 
                 Products.AddRange(category.Products);
             }
