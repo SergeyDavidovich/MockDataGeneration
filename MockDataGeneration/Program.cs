@@ -15,7 +15,7 @@ namespace MockDataGeneration
     {
         public static void Main(string[] args)
         {
-            var fakeProvider = new FakeDataProvider();
+            var fakeProvider = new FakeDataGenerator();
 
             var categories = fakeProvider.Categories;
             var products = fakeProvider.Products;

@@ -9,11 +9,11 @@ using MockDataGeneration.Model;
 
 namespace MockDataGeneration
 {
-    public partial class FakeDataProvider
+    public partial class FakeDataGenerator
     {
         private readonly int categoriesCount = 4;
         private int productCount;
-        public FakeDataProvider()
+        public FakeDataGenerator()
         {
             Categories = new List<Category>();
             Products = new List<Product>();
