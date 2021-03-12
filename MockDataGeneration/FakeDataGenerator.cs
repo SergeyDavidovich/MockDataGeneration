@@ -9,7 +9,7 @@ using MockDataGeneration.Model;
 
 namespace MockDataGeneration
 {
-    public partial class FakeDataGenerator
+    public class FakeDataGenerator
     {
         private readonly int categoriesCount = 4;
         private int productCount;
@@ -38,7 +38,6 @@ namespace MockDataGeneration
                 Products.AddRange(category.Products);
             }
         }
-
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
     }
